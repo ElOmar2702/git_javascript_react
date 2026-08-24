@@ -30,10 +30,7 @@ function Promedio(nota1, nota2, nota3)
  const total = (nota1 + nota2 + nota3) / 3
  return total;
 }
-const resultado5 = Promedio(16, 4, 8);
-
-
-
+const resultado5 = Promedio(5, 3.5, 4.5);
 
 console.log("Resultado Suma:",resultado);
 console.log("Resultado Resta:",resultado2);
