@@ -173,7 +173,7 @@ productos.forEach((producto, indice) => {
 
 */
 
-/** Reto 5: map() */
+/** Reto 5: map() 
 
 const productos = [
   { nombre: "Mouse", precio: 50000, stock: 10 },
@@ -191,3 +191,39 @@ console.log(nombresMayuscula);
 
 const resumenProductos = productos.map(producto => `${producto.nombre} cuesta: ${producto.precio}`);
 console.log(resumenProductos);
+
+*/
+
+/**Reto 6: filter() y find() */
+
+const productos = [
+  { id: 1, nombre: "Mouse", precio: 50000, stock: 10, categoria: "Tecnología" },
+  { id: 2, nombre: "Teclado", precio: 80000, stock: 5, categoria: "Tecnología" },
+  { id: 3, nombre: "Silla Gamer", precio: 450000, stock: 2, categoria: "Muebles" },
+  { id: 4, nombre: "Escritorio", precio: 150000, stock: 0, categoria: "Muebles" },
+  { id: 5, nombre: "Monitor", precio: 600000, stock: 3, categoria: "Tecnología" }
+];
+
+const disponibles = productos.filter(producto => producto.stock > 0);
+const producto3 = productos.find(producto => producto.id === 3);
+
+console.log("Productos disponibles:", disponibles);
+console.log("Producto con ID 3:", producto3);
+
+const mayor100k = productos.filter(producto => producto.precio > 100000);
+console.log("Productos > $100.000:", mayor100k);
+
+const entre50ky200k = productos.filter(producto => producto.precio >= 50000 && producto.precio <= 200000);
+console.log("Productos entre $50.000 y $200.000:", entre50ky200k);
+
+const soloTecnologia = productos.filter(producto => producto.categoria === "Tecnología");
+console.log("Categoría Tecnología:", soloTecnologia);
+
+const producto5 = productos.find(producto => producto.id === 5);
+console.log("Producto con ID 5:", producto5);
+
+const buscarProducto = (id) => {
+  return productos.find(producto => producto.id === id);
+};
+
+console.log("Búsqueda con función (ID 2):", buscarProducto(2));
