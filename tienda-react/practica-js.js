@@ -138,5 +138,21 @@ if(almacenar < numero2)
 
 
 
-/** funciones, parámetros y return */
 
+
+/** arreglos y objetos
+
+const productos = [
+ { id: 1, nombre: 'Mouse', precio: 50000, categoria: 'Perifericos', stock: 5 },
+ { id: 2, nombre: 'Teclado', precio: 90000, categoria: 'Perifericos', stock: 0 },
+ { id: 3, nombre: 'Monitor', precio: 650000, categoria: 'Pantallas', stock: 3 },
+ { id: 4, nombre: 'Monitor UHD 14', precio: 1250000, categoria: 'Pantallas', stock: 3 },
+ { id: 5, nombre: 'PC ULTRA MEGA SNAP', precio: 444650000, categoria: 'PCs', stock: 6 },
+ { id: 6, nombre: 'Teclado Gamer', precio: 350000, categoria: 'Perifericos', stock: 0 },
+ { id: 7, nombre: 'Mouse Gamer', precio: 950000, categoria: 'Perifericos', stock: 0 },
+ { id: 3, nombre: 'Camara', precio: 20000, categoria: 'Perifericos', stock: 16 },
+ { id: 3, nombre: 'PORTATIL GAMER VULKAN', precio: 15650000, categoria: 'PCs Portatiles', stock: 2 },
+ { id: 3, nombre: 'Monitor 6K 1000P', precio: 6500, categoria: 'Pantallas', stock: 3 }
+];
+
+ */
