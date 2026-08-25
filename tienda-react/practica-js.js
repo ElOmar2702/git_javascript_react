@@ -173,3 +173,21 @@ productos.forEach((producto, indice) => {
 
 */
 
+/** Reto 5: map() */
+
+const productos = [
+  { nombre: "Mouse", precio: 50000, stock: 10 },
+  { nombre: "Teclado", precio: 80000, stock: 5 },
+  { nombre: "Monitor", precio: 600000, stock: 3 }
+];
+const nombres = productos.map(producto => producto.nombre);
+console.log(nombres);
+
+const preciosConIva = productos.map(producto => producto.precio * 1.19);
+console.log(preciosConIva);
+
+const nombresMayuscula = nombres.map(nombre => nombre.toUpperCase());
+console.log(nombresMayuscula);
+
+const resumenProductos = productos.map(producto => `${producto.nombre} cuesta: ${producto.precio}`);
+console.log(resumenProductos);
