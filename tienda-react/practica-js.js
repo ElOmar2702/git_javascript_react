@@ -194,7 +194,7 @@ console.log(resumenProductos);
 
 */
 
-/**Reto 6: filter() y find() */
+/**Reto 6: filter() y find() 
 
 const productos = [
   { id: 1, nombre: "Mouse", precio: 50000, stock: 10, categoria: "Tecnología" },
@@ -227,3 +227,36 @@ const buscarProducto = (id) => {
 };
 
 console.log("Búsqueda con función (ID 2):", buscarProducto(2));
+
+*/
+
+/** Reto 7: some(), every() y reduce() 
+
+const productos = [
+  { id: 1, nombre: "Mouse", precio: 50000, stock: 10, categoria: "Tecnología" },
+  { id: 2, nombre: "Teclado", precio: 80000, stock: 5, categoria: "Tecnología" },
+  { id: 3, nombre: "Silla Gamer", precio: 450000, stock: 2, categoria: "Muebles" },
+  { id: 4, nombre: "Escritorio", precio: 150000, stock: 0, categoria: "Muebles" },
+  { id: 5, nombre: "Monitor", precio: 600000, stock: 3, categoria: "Tecnología" }
+];
+
+const hayAgotados = productos.some(producto => producto.stock === 0);
+const preciosValidos = productos.every(producto => producto.precio > 0);
+const valorInventario = productos.reduce(
+  (total, producto) => total + producto.precio * producto.stock,
+  0
+);
+
+console.log("¿Existe algún producto agotado?:", hayAgotados);
+
+const hayCaros = productos.some(producto => producto.precio > 1000000);
+console.log("¿Hay algún producto > $1.000.000?:", hayCaros);
+
+console.log("¿Todos tienen precio mayor a 0?:", preciosValidos);
+
+const stockValido = productos.every(producto => producto.stock >= 0);
+console.log("¿Todos tienen stock >= 0?:", stockValido);
+
+console.log("Valor total del inventario: $", valorInventario);
+
+*/
