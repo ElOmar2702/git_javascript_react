@@ -260,3 +260,41 @@ console.log("¿Todos tienen stock >= 0?:", stockValido);
 console.log("Valor total del inventario: $", valorInventario);
 
 */
+
+/** Reto 8: JavaScript moderno */
+
+// Template literals
+//console.log(`El producto ${productos[0].nombre} cuesta $${productos[0].precio}`);
+
+// Desestructuración
+//const { nombre, precio, stock } = productos[0];
+// console.log(nombre, precio, stock);
+
+// Spread
+//const productoActualizado = {
+ //..productos[0],
+ //stock: 8
+//};
+
+// Operador ternario
+//const estado = productoActualizado.stock > 0 ? 'Disponible' : 'Agotado';
+//console.log(estado);
+
+
+
+const productos = [
+  { id: 1, nombre: "Mouse", precio: 50000, stock: 10 },
+  { id: 2, nombre: "Teclado", precio: 80000, stock: 5 }
+];
+
+const productoActualizado = {
+  ...productos[0], 
+  precio: 45000,   
+  stock: 8        
+};
+
+const { nombre: nombreProd, precio: precioProd, stock: stockProd } = productoActualizado;
+
+const mensaje = `El producto ${nombreProd} ahora cuesta $${precioProd} y su estado es: ${stockProd > 0 ? 'Disponible' : 'Agotado'}.`;
+
+console.log(mensaje);
