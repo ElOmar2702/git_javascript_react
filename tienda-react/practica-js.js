@@ -156,3 +156,20 @@ const productos = [
 ];
 
  */
+
+/** Reto 4: forEach() */
+
+/** 
+const productos = 
+[
+  { nombre: "Camiseta", precio: 25, stock: 10 },
+  { nombre: "Pantalón", precio: 40, stock: 5 },
+  { nombre: "Zapatos", precio: 60, stock: 8 }
+];
+
+productos.forEach((producto, indice) => {
+  console.log(`${indice + 1}. ${producto.nombre} - Precio: $${producto.precio} - Stock: ${producto.stock}`);
+});
+
+*/
+
