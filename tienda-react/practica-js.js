@@ -140,7 +140,7 @@ if(almacenar < numero2)
 
 
 
-/** arreglos y objetos
+// arreglos y objetos
 
 const productos = [
  { id: 1, nombre: 'Mouse', precio: 50000, categoria: 'Perifericos', stock: 5 },
@@ -155,7 +155,8 @@ const productos = [
  { id: 3, nombre: 'Monitor 6K 1000P', precio: 6500, categoria: 'Pantallas', stock: 3 }
 ];
 
- */
+console.log(productos);
+
 
 /** Reto 4: forEach() */
 
@@ -281,7 +282,7 @@ console.log("Valor total del inventario: $", valorInventario);
 //console.log(estado);
 
 
-
+/** 
 const productos = [
   { id: 1, nombre: "Mouse", precio: 50000, stock: 10 },
   { id: 2, nombre: "Teclado", precio: 80000, stock: 5 }
@@ -298,3 +299,4 @@ const { nombre: nombreProd, precio: precioProd, stock: stockProd } = productoAct
 const mensaje = `El producto ${nombreProd} ahora cuesta $${precioProd} y su estado es: ${stockProd > 0 ? 'Disponible' : 'Agotado'}.`;
 
 console.log(mensaje);
+*/
