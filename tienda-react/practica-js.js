@@ -140,7 +140,7 @@ if(almacenar < numero2)
 
 
 
-// arreglos y objetos
+/** // arreglos y objetos
 
 const productos = [
  { id: 1, nombre: 'Mouse', precio: 50000, categoria: 'Perifericos', stock: 5 },
@@ -156,6 +156,7 @@ const productos = [
 ];
 
 console.log(productos);
+*/
 
 
 /** Reto 4: forEach() */
@@ -262,7 +263,7 @@ console.log("Valor total del inventario: $", valorInventario);
 
 */
 
-/** Reto 8: JavaScript moderno */
+ // Reto 8: JavaScript moderno 
 
 // Template literals
 //console.log(`El producto ${productos[0].nombre} cuesta $${productos[0].precio}`);
@@ -282,21 +283,33 @@ console.log("Valor total del inventario: $", valorInventario);
 //console.log(estado);
 
 
-/** 
 const productos = [
   { id: 1, nombre: "Mouse", precio: 50000, stock: 10 },
-  { id: 2, nombre: "Teclado", precio: 80000, stock: 5 }
+  { id: 2, nombre: "Teclado", precio: 80000, stock: 5 },
+  { id: 3, nombre: "Monitor", precio: 6000000, stock: 0 },
+  { id: 4, nombre: "Auriculares", precio: 120000, stock: 15 },
+  { id: 5, nombre: "Cámara Web", precio: 95000, stock: 2 }
 ];
 
-const productoActualizado = {
-  ...productos[0], 
-  precio: 45000,   
-  stock: 8        
-};
+// 1. SPREAD OPERATOR (...)
 
-const { nombre: nombreProd, precio: precioProd, stock: stockProd } = productoActualizado;
+const productosActualizados = productos.map(producto => ({
+  ...producto,
+  precio: producto.precio - 5000,
+  stock: Math.max(0, producto.stock - 2) 
+}));
 
-const mensaje = `El producto ${nombreProd} ahora cuesta $${precioProd} y su estado es: ${stockProd > 0 ? 'Disponible' : 'Agotado'}.`;
 
-console.log(mensaje);
-*/
+productosActualizados.forEach(producto => {
+  
+  // 2. DESESTRUCTURACIÓN
+  const { nombre, precio, stock } = producto;
+  
+  // 3. OPERADOR TERNARIO
+  const estado = stock > 0 ? 'Disponible' : 'Agotado';
+  
+  // 4. TEMPLATE LITERALS
+  const mensaje = `El producto ${nombre} ahora cuesta $${precio} y su estado es: ${estado}.`;
+  
+  console.log(mensaje);
+});
