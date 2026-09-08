@@ -6,7 +6,14 @@ function ProductoCard({ producto }) {
     stock
   } = producto;
 
-  const estado = producto.stock > 0 ? 'Disponible' : 'Agotado';
+  const estado =
+    stock > 0
+      ? "Disponible"
+      : "Agotado";
+
+  const mostrarProducto = () => {
+    alert(`Seleccionaste ${nombre}`);
+  };
 
   return (
     <article className="producto-card">
@@ -15,6 +22,10 @@ function ProductoCard({ producto }) {
       <p>Precio: ${precio}</p>
       <p>Stock: {stock}</p>
       <strong>{estado}</strong>
+      <br />
+      <button onClick={mostrarProducto}>
+        Ver producto
+      </button>
     </article>
   );
 }
