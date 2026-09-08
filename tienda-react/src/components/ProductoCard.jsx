@@ -5,7 +5,7 @@ function ProductoCard({ producto }) {
     categoria,
     stock
   } = producto;
-
+  
   const estado =
     stock > 0
       ? "Disponible"
