@@ -5,7 +5,7 @@ function ProductoCard({ producto }) {
     categoria,
     stock
   } = producto;
-  
+
   const estado =
     stock > 0
       ? "Disponible"
@@ -23,8 +23,15 @@ function ProductoCard({ producto }) {
       <p>Stock: {stock}</p>
       <strong>{estado}</strong>
       <br />
-      <button onClick={mostrarProducto}>
-        Ver producto
+      <button
+        onClick={mostrarProducto}
+        disabled={stock === 0}
+      >
+        {
+          stock > 0
+            ? "Ver producto"
+            : "Agotado"
+        }
       </button>
     </article>
   );
