@@ -12,7 +12,7 @@ function App() {
     (total, producto) => total + producto.precio * producto.stock,
     0
   );
-
+  
   return (
     <main className="contenedor">
       <h1>Tienda tecnológica</h1>
