@@ -12,7 +12,15 @@ function App() {
     (total, producto) => total + producto.precio * producto.stock,
     0
   );
-  
+
+  const productosFiltrados = productos.filter(producto =>
+    producto.nombre
+      .toLowerCase()
+      .includes(
+        busqueda.toLowerCase()
+      )
+  );
+
   return (
     <main className="contenedor">
       <h1>Tienda tecnológica</h1>
@@ -30,8 +38,15 @@ function App() {
       />
 
       <h2>Todos los productos</h2>
+
+      {
+        productosFiltrados.length === 0
+          ? <p>No se encontraron productos.</p>
+          : null
+      }
+
       <section className="productos">
-        {productos.map(producto => (
+        {productosFiltrados.map(producto => (
           <ProductoCard
             key={producto.id}
             producto={producto}
