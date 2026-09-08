@@ -5,6 +5,8 @@ import './App.css';
 
 function App() {
   const [busqueda, setBusqueda] = useState("");
+  // 1. Segundo estado para la categoría
+  const [categoria, setCategoria] = useState("Todas");
 
   const disponibles = productos.filter(producto => producto.stock > 0);
   const hayAgotados = productos.some(producto => producto.stock === 0);
@@ -13,13 +15,17 @@ function App() {
     0
   );
 
-  const productosFiltrados = productos.filter(producto =>
-    producto.nombre
+  // 2. Modificación del filtro combinando nombre y categoría
+  const productosFiltrados = productos.filter(producto => {
+    const coincideNombre = producto.nombre
       .toLowerCase()
-      .includes(
-        busqueda.toLowerCase()
-      )
-  );
+      .includes(busqueda.toLowerCase());
+
+    const coincideCategoria =
+      categoria === "Todas" || producto.categoria === categoria;
+
+    return coincideNombre && coincideCategoria;
+  });
 
   return (
     <main className="contenedor">
@@ -36,6 +42,16 @@ function App() {
           setBusqueda(evento.target.value);
         }}
       />
+
+      {/* 3. Selector de categoría */}[cite: 1]
+      <select
+        value={categoria}
+        onChange={(evento) => setCategoria(evento.target.value)}
+      >
+        <option value="Todas">Todas</option>
+        <option value="Perifericos">Periféricos</option>
+        <option value="Pantallas">Pantallas</option>
+      </select>
 
       <h2>Todos los productos</h2>
 
