@@ -5,8 +5,9 @@ import './App.css';
 
 function App() {
   const [busqueda, setBusqueda] = useState("");
-  // 1. Segundo estado para la categoría
   const [categoria, setCategoria] = useState("Todas");
+  // 1. Tercer estado para filtrar solo disponibles
+  const [soloDisponibles, setSoloDisponibles] = useState(false);
 
   const disponibles = productos.filter(producto => producto.stock > 0);
   const hayAgotados = productos.some(producto => producto.stock === 0);
@@ -15,7 +16,7 @@ function App() {
     0
   );
 
-  // 2. Modificación del filtro combinando nombre y categoría
+  // 2. Modificación del filtro agregando la condición de stock[cite: 1]
   const productosFiltrados = productos.filter(producto => {
     const coincideNombre = producto.nombre
       .toLowerCase()
@@ -24,7 +25,14 @@ function App() {
     const coincideCategoria =
       categoria === "Todas" || producto.categoria === categoria;
 
-    return coincideNombre && coincideCategoria;
+    const coincideStock =
+      !soloDisponibles || producto.stock > 0;
+
+    return (
+      coincideNombre &&
+      coincideCategoria &&
+      coincideStock
+    );
   });
 
   return (
@@ -43,7 +51,6 @@ function App() {
         }}
       />
 
-      {/* 3. Selector de categoría */}[cite: 1]
       <select
         value={categoria}
         onChange={(evento) => setCategoria(evento.target.value)}
@@ -52,6 +59,18 @@ function App() {
         <option value="Perifericos">Periféricos</option>
         <option value="Pantallas">Pantallas</option>
       </select>
+
+      {/* 3. Checkbox para activar/desactivar solo disponibles */}[cite: 1]
+      <label>
+        <input
+          type="checkbox"
+          checked={soloDisponibles}
+          onChange={(evento) =>
+            setSoloDisponibles(evento.target.checked)
+          }
+        />
+        Mostrar únicamente disponibles
+      </label>
 
       <h2>Todos los productos</h2>
 
