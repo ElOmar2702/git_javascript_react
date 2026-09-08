@@ -15,11 +15,16 @@ function ProductoCard({ producto }) {
     alert(`Seleccionaste ${nombre}`);
   };
 
+  // Función para formatear el precio con separadores de miles
+  const formatearPrecio = precio => {
+    return precio.toLocaleString("es-CO");
+  };
+
   return (
     <article className="producto-card">
       <h2>{nombre}</h2>
       <p>Categoría: {categoria}</p>
-      <p>Precio: ${precio}</p>
+      <p>Precio: ${formatearPrecio(precio)}</p>
       <p>Stock: {stock}</p>
       <strong>{estado}</strong>
       <br />
