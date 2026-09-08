@@ -6,7 +6,6 @@ import './App.css';
 function App() {
   const [busqueda, setBusqueda] = useState("");
   const [categoria, setCategoria] = useState("Todas");
-  // 1. Tercer estado para filtrar solo disponibles
   const [soloDisponibles, setSoloDisponibles] = useState(false);
 
   const disponibles = productos.filter(producto => producto.stock > 0);
@@ -16,7 +15,6 @@ function App() {
     0
   );
 
-  // 2. Modificación del filtro agregando la condición de stock[cite: 1]
   const productosFiltrados = productos.filter(producto => {
     const coincideNombre = producto.nombre
       .toLowerCase()
@@ -60,7 +58,6 @@ function App() {
         <option value="Pantallas">Pantallas</option>
       </select>
 
-      {/* 3. Checkbox para activar/desactivar solo disponibles */}[cite: 1]
       <label>
         <input
           type="checkbox"
@@ -71,6 +68,11 @@ function App() {
         />
         Mostrar únicamente disponibles
       </label>
+
+      {/* Contador dinámico de productos encontrados */}
+      <p>
+        Productos encontrados: {productosFiltrados.length}
+      </p>
 
       <h2>Todos los productos</h2>
 
