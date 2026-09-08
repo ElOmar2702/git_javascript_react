@@ -15,10 +15,12 @@ function ProductoCard({ producto }) {
     alert(`Seleccionaste ${nombre}`);
   };
 
-  // Función para formatear el precio con separadores de miles
   const formatearPrecio = precio => {
     return precio.toLocaleString("es-CO");
   };
+
+  // Opción C: Categorizar tipo de producto por precio
+  const tipoProducto = precio >= 500000 ? "Producto premium" : "Producto económico";
 
   return (
     <article className="producto-card">
@@ -26,6 +28,7 @@ function ProductoCard({ producto }) {
       <p>Categoría: {categoria}</p>
       <p>Precio: ${formatearPrecio(precio)}</p>
       <p>Stock: {stock}</p>
+      <p><strong>{tipoProducto}</strong></p>
       <strong>{estado}</strong>
       <br />
       <button
